@@ -1,0 +1,25 @@
+*---*
+*   link file
+*---*
+
+
+		typ	$06			; binary file / fixed address
+
+*---*
+* Segment 1 *
+*---*
+
+		asm	mkmail.s
+		sna	mkmail_seg
+
+*--*
+* Segment 2 *
+*--*
+
+		;asm	gfx.s
+		asm	gfx140.s
+		sna	gfx140_seg
+
+		asm	tables.s
+		sna	tables_seg
+
