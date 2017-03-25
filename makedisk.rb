@@ -45,12 +45,14 @@ begin
 	#success()
 	do_cmd("mv -f ./main.dsk main.old.dsk", :errchk=>false)
 	do_cmd("cp ~/m/ProDOS_2_0_3.dsk ./main.dsk")
-	do_cmd("java -jar ~/m/ac-1.3.5.jar -p main.dsk MAIN BIN 0x7000 < main")
+	do_cmd("java -jar ~/m/ac-1.3.5.jar -p main.dsk MAIN.SYSTEM BIN 0x2000 < main")
 	#do_cmd("java -jar ~/m/ac-1.3.5.jar -p main.dsk TD BIN 0x4FFE < td/TD-640X480.DLO")
 
-	1.upto(9) do |n|
-		do_cmd("java -jar ~/m/ac-1.3.5.jar -p main.dsk TD#{n} BIN 0x4FFE < td/TD-#{n}.DLO")
-	end
+	do_cmd("java -jar ~/m/ac-1.3.5.jar -p main.dsk TD BIN 0x5000 < trashdove.bin")
+
+#	1.upto(4) do |n|
+#		do_cmd("java -jar ~/m/ac-1.3.5.jar -p main.dsk TD#{n} BIN 0x5000 < td/tds#{n}.bin")
+#	end
 
 	#do_cmd("java -jar ~/m/ac-1.3.5.jar -p main.dsk TD BIN 0x7FE < td/TD1-SM.SLO")
 	#do_cmd("java -jar ../ac/ac-1.3.5.jar -p mkmail.dsk GFX BIN 0x7200 < gfx")
